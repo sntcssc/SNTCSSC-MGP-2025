@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Document extends Model
+{
+    use SoftDeletes;
+
+    protected $fillable = ['registration_id', 'type', 'path', 'url', 'name'];
+
+    public function registration()
+    {
+        return $this->belongsTo(Registration::class);
+    }
+}

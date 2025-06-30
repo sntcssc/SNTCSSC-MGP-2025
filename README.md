@@ -38,6 +38,67 @@ php artisan serve
 
 ```
 
+============
+host a laravel project in a subdomain:
+
+move index.php file from publc folder to your root project folder.and change require DIR.'/../bootstrap/autoload.php'; to require DIR.'/bootstrap/autoload.php'; 
+
+create a .htaccess file in root directory:
+
+```
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+```
+
+
+
+==================
+```
+In live web hosting:
+
+in /resources/views/registration/form.blade.php
+
+<img src="{{ url('public/images/logo.png') }}" alt="SNTCSSC Logo">
+
+<a href="https://admission.sntcssc.in/mgp-2025/public${response.url}" target="_blank"><img src="${response.type === 'Photo' ? 'https://admission.sntcssc.in/mgp-2025/public' + response.url : 'https://admission.sntcssc.in/mgp-2025/public/images/pdf-icon.png'}" class="document-preview" alt="${response.type} Preview"></a>
+
+
+// window.location.href = response.pdf_url;
+setTimeout(function() {
+    window.location.href = "https://admission.sntcssc.in/mgp-2025/public" + response.pdf_url;
+}, 2000);  // 2000 milliseconds = 2 seconds
+
+
+and IN /resources/views/pdf/registration.blade.php
+
+<td><a href="{{ url('public' . $doc['url']) }}" target="_blank">View</a></td>
+```
+=======================
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
