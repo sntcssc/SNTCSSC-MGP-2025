@@ -36,4 +36,7 @@ Route::get('/apply', [RegistrationController::class, 'showForm'])->name('registe
 Route::post('/apply/upload', [RegistrationController::class, 'uploadDocument'])->name('register.upload');
 Route::post('/apply', [RegistrationController::class, 'store'])->name('register.store');
 
+Route::get('/apply/edit/{id}', [RegistrationController::class, 'edit'])->name('register.edit');
+Route::post('/apply/update/{id}', [RegistrationController::class, 'update'])->name('register.update');
+
 require __DIR__.'/auth.php';

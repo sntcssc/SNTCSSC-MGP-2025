@@ -357,14 +357,14 @@
                     <label for="fathers_occupation" class="form-label">Father's Occupation
                         <i class="fas fa-info-circle ms-1" data-bs-toggle="tooltip" title="Enter your father's occupation."></i>
                     </label>
-                    <input type="text" class="form-control" id="fathers_occupation" name="fathers_occupation" placeholder="Enter Occupation" aria-label="Father's Occupation">
+                    <input type="text" class="form-control" id="fathers_occupation" name="fathers_occupation" placeholder="Enter Occupation" aria-label="Father's Occupation" required>
                     <div class="invalid-feedback">Invalid occupation.</div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="mothers_occupation" class="form-label">Mother's Occupation
                         <i class="fas fa-info-circle ms-1" data-bs-toggle="tooltip" title="Enter your mother's occupation."></i>
                     </label>
-                    <input type="text" class="form-control" id="mothers_occupation" name="mothers_occupation" placeholder="Enter Occupation" aria-label="Mother's Occupation">
+                    <input type="text" class="form-control" id="mothers_occupation" name="mothers_occupation" placeholder="Enter Occupation" aria-label="Mother's Occupation" required>
                     <div class="invalid-feedback">Invalid occupation.</div>
                 </div>
             </div>
@@ -383,7 +383,7 @@
                     <label for="optional_subject" class="form-label">Optional Subject
                         <i class="fas fa-info-circle ms-1" data-bs-toggle="tooltip" title="Select your optional subject for UPSC, if any."></i>
                     </label>
-                    <select class="form-select" id="optional_subject" name="optional_subject" aria-label="Optional Subject">
+                    <select class="form-select" id="optional_subject" name="optional_subject" aria-label="Optional Subject" required>
                         <option value="">Select Subject</option>
                         @foreach($optionalSubjects as $subject)
                             <option value="{{ $subject }}">{{ $subject }}</option>
@@ -395,14 +395,14 @@
                     <label for="subject_graduation" class="form-label">Subject in Graduation
                         <i class="fas fa-info-circle ms-1" data-bs-toggle="tooltip" title="Enter your graduation subject."></i>
                     </label>
-                    <input type="text" class="form-control" id="subject_graduation" name="subject_graduation" placeholder="e.g., History" aria-label="Subject in Graduation">
+                    <input type="text" class="form-control" id="subject_graduation" name="subject_graduation" placeholder="e.g., History" aria-label="Subject in Graduation" required>
                     <div class="invalid-feedback">Invalid subject.</div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="institution_graduation" class="form-label">Institution (Graduation)
                         <i class="fas fa-info-circle ms-1" data-bs-toggle="tooltip" title="Enter your graduation institution."></i>
                     </label>
-                    <input type="text" class="form-control" id="institution_graduation" name="institution_graduation" placeholder="e.g., Delhi University" aria-label="Institution (Graduation)">
+                    <input type="text" class="form-control" id="institution_graduation" name="institution_graduation" placeholder="e.g., Delhi University" aria-label="Institution (Graduation)" required>
                     <div class="invalid-feedback">Invalid institution name.</div>
                 </div>
                 <div class="col-md-6 mb-3">
